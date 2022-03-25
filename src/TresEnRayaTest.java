@@ -1,6 +1,4 @@
 import org.junit.jupiter.api.Test;
-//en los signos de los jugares se puede poner cualquier letra, excepto la 'N' ya que esta
-//esta siendo usada para notificar que no hay ganador aun.
 import static org.junit.jupiter.api.Assertions.*;
 
 class TresEnRayaTest {
