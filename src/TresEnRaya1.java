@@ -1,7 +1,5 @@
-package backEnd;
 
-public class TresEnRaya {
-
+public class TresEnRaya1 {
     private final int fila = 3;
     private final int colm = 3;
     private char jugador1 = 'X';
@@ -10,9 +8,24 @@ public class TresEnRaya {
     private boolean turnoJug2 = false;
     private char tabla[][];
 
-    public TresEnRaya() {
+    public TresEnRaya1() {
         this.tabla = new char[fila][colm];
-        crearTablero();
+    }
+
+    public void crearTablero() {
+        this.tabla = new char[fila][colm];
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < colm; j++) {
+                tabla[i][j] = ' ';
+            }
+        }
+    }
+
+    public boolean hayTresEnRaya() {
+        if (quienHaGanado() != 'N') {
+            return true;
+        }
+        return false;
     }
 
     public boolean jugar(int fila, int colm) {
@@ -24,8 +37,10 @@ public class TresEnRaya {
             if (jug1Dio) {
                 turnoJug1 = false;
                 turnoJug2 = true;
+                res = true;
             }
-        } else {
+        }
+        if (turnoJug2) {
             jug2Dio = jugar(jugador2, fila, colm);
             if (jug2Dio) {
                 turnoJug2 = false;
@@ -36,8 +51,8 @@ public class TresEnRaya {
         return res;
     }
 
-
-    private boolean jugar(char valor, int fila, int colm) {
+    // se debe cambiar a private en produccion.
+    public boolean jugar(char valor, int fila, int colm) {
         if (fila < 0 || fila >= 3 || colm < 0 || colm >= 3) {
             return false;
         }
@@ -46,13 +61,6 @@ public class TresEnRaya {
         }
         tabla[fila][colm] = valor;
         return true;
-    }
-
-    public boolean hayTresEnRaya() {
-        if (quienHaGanado() != 'N') {
-            return true;
-        }
-        return false;
     }
 
     private char verificarVertical() {
@@ -140,23 +148,7 @@ public class TresEnRaya {
         return res;
     }
 
-    private void crearTablero() {
-        this.tabla = new char[fila][colm];
-        for (int i = 0; i < fila; i++) {
-            for (int j = 0; j < colm; j++) {
-                tabla[i][j] = ' ';
-            }
-        }
-    }
-
-    public boolean tie() {
-        if (estaLleno() || hayTresEnRaya()) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean estaLleno() {
+    public boolean estaLleno() {
         boolean res = true;
         for (int i = 0; i < fila && res; i++) {
             for (int j = 0; j < colm && res; j++) {
@@ -164,17 +156,6 @@ public class TresEnRaya {
                     res = false;
                 }
             }
-        }
-        return res;
-    }
-
-    public String toString() {
-        String res = "";
-        for (int i = 0; i < fila; i++) {
-            for (int j = 0; j < colm; j++) {
-                res += "|" + tabla[i][j] + "|";
-            }
-            res += "\n";
         }
         return res;
     }

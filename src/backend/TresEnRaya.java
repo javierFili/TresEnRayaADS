@@ -1,5 +1,7 @@
+package backend;
 
 public class TresEnRaya {
+
     private final int fila = 3;
     private final int colm = 3;
     private char jugador1 = 'X';
@@ -10,22 +12,52 @@ public class TresEnRaya {
 
     public TresEnRaya() {
         this.tabla = new char[fila][colm];
+        crearTablero();
     }
 
-    public void crearTablero() {
-        this.tabla = new char[fila][colm];
-        for (int i = 0; i < fila; i++) {
-            for (int j = 0; j < colm; j++) {
-                tabla[i][j] = ' ';
+    public String obtenerResultado() {
+        String res = "Empate";
+        char res1 = verificarVertical();
+        char res2 = verificarHorrizontal();
+        char res3 = verificarDiagonales();
+        if (res1 != 'N') {
+            res = "ganador jugador ";
+            if (res1 == 'X') {
+                res += "1";
+            } else {
+                res += "2";
+            }
+        } else {
+            if (res2 != 'N') {
+                res = "ganador jugador ";
+                if (res1 == 'X') {
+                    res += "1";
+                } else {
+                    res += "2";
+                }
+            } else {
+                if (res3 != 'N') {
+                    res = "ganador jugador ";
+                    if (res1 == 'X') {
+                        res += "1";
+                    } else {
+                        res += "2";
+                    }
+                }
             }
         }
+        return res;
     }
 
-    public boolean hayTresEnRaya() {
-        if (quienHaGanado() != 'N') {
-            return true;
+    public String toString() {
+        String res = "";
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < colm; j++) {
+                res += tabla[i][j];
+            }
+            res += "\n";
         }
-        return false;
+        return res;
     }
 
     public boolean jugar(int fila, int colm) {
@@ -37,10 +69,8 @@ public class TresEnRaya {
             if (jug1Dio) {
                 turnoJug1 = false;
                 turnoJug2 = true;
-                res = true;
             }
-        }
-        if (turnoJug2) {
+        } else {
             jug2Dio = jugar(jugador2, fila, colm);
             if (jug2Dio) {
                 turnoJug2 = false;
@@ -51,8 +81,21 @@ public class TresEnRaya {
         return res;
     }
 
-    // se debe cambiar a private en produccion.
-    public boolean jugar(char valor, int fila, int colm) {
+    public boolean tie() {
+        if (estaLleno() || hayTresEnRaya()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hayTresEnRaya() {
+        if (obtenerResultado() != "Empate") {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean jugar(char valor, int fila, int colm) {
         if (fila < 0 || fila >= 3 || colm < 0 || colm >= 3) {
             return false;
         }
@@ -62,6 +105,7 @@ public class TresEnRaya {
         tabla[fila][colm] = valor;
         return true;
     }
+
 
     private char verificarVertical() {
         for (int i = 0; i < fila; i++) {
@@ -129,26 +173,16 @@ public class TresEnRaya {
         return 'N';
     }
 
-    public char quienHaGanado() {
-        char res = 'N';
-        char res1 = verificarVertical();
-        char res2 = verificarHorrizontal();
-        char res3 = verificarDiagonales();
-        if (res1 != 'N') {
-            res = res1;
-        } else {
-            if (res2 != 'N') {
-                res = res2;
-            } else {
-                if (res3 != 'N') {
-                    res = res3;
-                }
+    private void crearTablero() {
+        this.tabla = new char[fila][colm];
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < colm; j++) {
+                tabla[i][j] = ' ';
             }
         }
-        return res;
     }
 
-    public boolean estaLleno() {
+    private boolean estaLleno() {
         boolean res = true;
         for (int i = 0; i < fila && res; i++) {
             for (int j = 0; j < colm && res; j++) {
@@ -159,5 +193,4 @@ public class TresEnRaya {
         }
         return res;
     }
-
 }

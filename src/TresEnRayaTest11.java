@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TresEnRayaTest {
+class TresEnRayaTest11 {
 
     @Test
     void marcarDentroDelLimite() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         boolean res = tresEnRaya.jugar('X', 0, 1);
         assertEquals(res, true);
@@ -13,7 +13,7 @@ class TresEnRayaTest {
 
     @Test
     void marcarFueraDelLimite() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         boolean res = tresEnRaya.jugar('O', 4, 2);
         assertEquals(res, false);
@@ -21,7 +21,7 @@ class TresEnRayaTest {
 
     @Test
     void marcarSobreUnoYaMarcado() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         boolean res = tresEnRaya.jugar('X', 2, 2);
         boolean res1 = tresEnRaya.jugar('0', 2, 2);
@@ -30,7 +30,7 @@ class TresEnRayaTest {
 
     @Test
     void ningunGanador() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar('0', 1, 1);
         tresEnRaya.jugar('X', 1, 2);
@@ -43,7 +43,7 @@ class TresEnRayaTest {
 
     @Test
     void ganador0Horrizontal() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(0, 1);
         tresEnRaya.jugar(1, 2);
@@ -57,7 +57,7 @@ class TresEnRayaTest {
 
     @Test
     void gandorXVertical() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(1, 1);
         tresEnRaya.jugar(2, 0);
@@ -71,7 +71,7 @@ class TresEnRayaTest {
 
     @Test
     void ganadorXDiagonal1() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(0, 0);
         tresEnRaya.jugar(2, 0);
@@ -86,7 +86,7 @@ class TresEnRayaTest {
 
     @Test
     void ganador0Diagonal2() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(0, 1);
         tresEnRaya.jugar(2, 0);
@@ -100,7 +100,7 @@ class TresEnRayaTest {
 
     @Test
     void crearTablero() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(2, 1);
         tresEnRaya.jugar(1, 2);
@@ -118,7 +118,7 @@ class TresEnRayaTest {
 
     @Test
     void hayTresEnRayaPositivo() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(0, 2);
         tresEnRaya.jugar(1, 2);
@@ -131,7 +131,7 @@ class TresEnRayaTest {
 
     @Test
     void hayTresEnRataNegativo() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(2, 1);
         tresEnRaya.jugar(1, 2);
@@ -142,7 +142,7 @@ class TresEnRayaTest {
 
     @Test
     void revisarLlenadoPositivo() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(0, 1);
         tresEnRaya.jugar(2, 0);
@@ -160,7 +160,7 @@ class TresEnRayaTest {
 
     @Test
     void revisarLlenadoNegativo() {
-        TresEnRaya tresEnRaya = new TresEnRaya();
+        TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
         tresEnRaya.jugar(0, 1);
         tresEnRaya.jugar(2, 0);

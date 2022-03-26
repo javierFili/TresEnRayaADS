@@ -1,4 +1,4 @@
-package backEnd;
+package backend;
 
 import org.junit.jupiter.api.Test;
 
@@ -31,8 +31,8 @@ class TresEnRayaTest1 {
                     tresEnRaya.tie();
             i++;
         }
-        char res = tresEnRaya.quienHaGanado();
-        assertEquals(res,'0');
+        String res = tresEnRaya.obtenerResultado();
+        assertEquals(res, "ganador jugador 2");
     }
 
     @Test
@@ -64,8 +64,8 @@ class TresEnRayaTest1 {
                     tresEnRaya.tie();
             i++;
         }
-        char res = tresEnRaya.quienHaGanado();
-        assertEquals(res,'X');
+        String res = tresEnRaya.obtenerResultado();
+        assertEquals(res, "ganador jugador 1");
 
     }
 
@@ -109,8 +109,8 @@ class TresEnRayaTest1 {
                     tresEnRaya.tie();
             i++;
         }
-        char res = tresEnRaya.quienHaGanado();
-        assertEquals(res,'N');
+        String res = tresEnRaya.obtenerResultado();
+        assertEquals(res, "Empate");
     }
 
 }
