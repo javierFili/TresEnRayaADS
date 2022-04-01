@@ -30,7 +30,7 @@ public class TresEnRaya {
         } else {
             if (res2 != 'N') {
                 res = "ganador jugador ";
-                if (res1 == 'X') {
+                if (res2 == 'X') {
                     res += "1";
                 } else {
                     res += "2";
@@ -38,7 +38,7 @@ public class TresEnRaya {
             } else {
                 if (res3 != 'N') {
                     res = "ganador jugador ";
-                    if (res1 == 'X') {
+                    if (res3 == 'X') {
                         res += "1";
                     } else {
                         res += "2";

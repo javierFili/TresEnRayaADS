@@ -73,12 +73,12 @@ class TresEnRayaTest11 {
     void ganadorXDiagonal1() {
         TresEnRaya1 tresEnRaya = new TresEnRaya1();
         tresEnRaya.crearTablero();
-        tresEnRaya.jugar(0, 0);
-        tresEnRaya.jugar(2, 0);
-        tresEnRaya.jugar(1, 1);
-        tresEnRaya.jugar(1, 2);
-        tresEnRaya.jugar(2, 2);
-        tresEnRaya.jugar(0, 2);
+        tresEnRaya.jugar(0, 0);//X
+        tresEnRaya.jugar(2, 0);//0
+        tresEnRaya.jugar(1, 1);//X
+        tresEnRaya.jugar(1, 2);//0
+        tresEnRaya.jugar(2, 2);//X
+        tresEnRaya.jugar(0, 2);//0
         char res = tresEnRaya.quienHaGanado();
         assertEquals(res, 'X');
 

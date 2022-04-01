@@ -70,6 +70,20 @@ class TresEnRayaTest1 {
     }
 
     @Test
+    void gandorXDiagonal() {
+        TresEnRaya tresEnRaya = new TresEnRaya();
+        tresEnRaya.jugar(0, 0);//X
+        tresEnRaya.jugar(2, 0);//0
+        tresEnRaya.jugar(1, 1);//X
+        tresEnRaya.jugar(1, 2);//0
+        tresEnRaya.jugar(2, 2);//X
+        tresEnRaya.jugar(0, 2);//0
+        String res = tresEnRaya.obtenerResultado();
+        assertEquals(res, "ganador jugador 1");
+
+    }
+
+    @Test
     void empate() {
         int[][] jugadas = new int[9][2];
         jugadas[0][0] = 0;

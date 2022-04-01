@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="frontend.AvisoDeGanador">
+  <grid id="27dc6" binding="areaDeInfo" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="238" y="182" width="257" height="139"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="444af" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <text value="El juego a terminado"/>
+          <verticalAlignment value="3"/>
+        </properties>
+      </component>
+      <component id="c74f1" class="javax.swing.JLabel" binding="aviso">
+        <constraints/>
+        <properties>
+          <horizontalTextPosition value="0"/>
+          <text value="Gano el jugador"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
